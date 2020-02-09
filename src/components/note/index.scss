@@ -1,0 +1,109 @@
+
+.note {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 12px;
+    box-sizing: border-box;
+  }
+
+  &__text, &__btns {
+    color: #000;
+  }
+
+  &__text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 65%;
+    border: 2px solid #464646;
+    border-radius: 8px;
+    background: #fff;
+    text-align: left;
+    overflow: hidden;
+    transition: .4s;
+
+    &.active {
+      border: 1px solid #464646;
+    }
+
+    &__span, &__input {
+      width: 100%;
+      height: 100%;
+      font-size: 16px;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: .3s,;
+      z-index: -1;
+
+      &.active {
+        opacity: 1;
+        z-index: 99;
+      }
+    }
+
+    &__span {
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      padding: 8px 12px;
+      overflow-x: auto;
+    }
+
+    &__input {
+      position: relative;
+      height: 100%;
+      padding: 4px 5px;
+      border: none;
+      border-bottom: 0px solid #000;
+      outline: none;
+      transition: .4s;
+      
+      &.active {
+        width: 90%;
+        height: 80%;
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+
+    &__delete, &__favorites {
+      padding: 8px 12px;
+      border: 1px solid #464646;
+      border-radius: 8px;
+      box-sizing: border-box;
+      background: #fff;
+      transition: .4s;
+      cursor: pointer;
+
+      &.active {
+        animation-name: scaleBtn;
+        animation-duration: .5s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+      }
+    }
+  }
+}
+
+
+@keyframes scaleBtn {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
